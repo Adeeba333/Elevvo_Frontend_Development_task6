@@ -7,7 +7,6 @@ import Profile from "./pages/Profile";
 export default function App() {
   return (
     <Routes>
-      {/* Layout route: sidebar + header stay, only <Outlet /> changes */}
       <Route element={<DashboardLayout />}>
         <Route path="/" element={<Overview />} />
         <Route path="/projects" element={<Projects />} />

@@ -9,7 +9,6 @@ const links = [
 export default function Sidebar({ open, onClose }) {
     return (
         <>
-        {/* Dark overlay: mobile only, only when the sidebar is open */}
         {open && (
             <div className="fixed inset-0 z-30 bg-black/40 lg:hidden" onClick={onClose} />
         )}

@@ -5,7 +5,6 @@ export default function NotificationDropdown() {
     const [open, setOpen] = useState(false);
     const boxRef = useRef(null);
 
-    // Close the dropdown when the user clicks outside it
     useEffect(() => {
         function handleClickOutside(e) {
         if (boxRef.current && !boxRef.current.contains(e.target)) setOpen(false);

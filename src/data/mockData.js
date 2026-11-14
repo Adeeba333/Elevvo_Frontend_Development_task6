@@ -1,5 +1,5 @@
 export const stats = [
-    { id: 1, label: "Total Projects", value: "24", note: "6 active right now" },
+    { id: 1, label: "Total Projects", value: "22", note: "6 active right now" },
     { id: 2, label: "Earnings (2026)", value: "$18,450", note: "+12% vs last year" },
     { id: 3, label: "Tasks Due", value: "9", note: "3 due this week" },
 ];

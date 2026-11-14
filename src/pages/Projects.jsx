@@ -7,7 +7,7 @@ const filters = ["All", "Active", "Pending", "Completed", "Overdue"];
 const formatDate = (iso) =>
     new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 
-export default function Projects() {
+    export default function Projects() {
     const [filter, setFilter] = useState("All");
 
     const visible = filter === "All" ? projects : projects.filter((p) => p.status === filter);
@@ -22,7 +22,9 @@ export default function Projects() {
                 key={f}
                 onClick={() => setFilter(f)}
                 className={`rounded-full border px-3 py-1 text-sm ${
-                filter === f ? "border-brand bg-brand text-white" : "border-ink/25 bg-white"
+                filter === f
+                    ? "border-brand bg-brand text-white"
+                    : "border-ink/25 bg-surface text-ink hover:bg-canvas"
                 }`}
             >
                 {f}
@@ -34,9 +36,8 @@ export default function Projects() {
             <p className="text-sm text-ink/60">No {filter.toLowerCase()} projects.</p>
         ) : (
             <>
-            {/* Table: tablet and desktop */}
-            <div className="hidden overflow-hidden rounded-lg border border-line bg-white md:block">
-                <table className="w-full text-left text-sm">
+            <div className="hidden overflow-hidden rounded-lg border border-line bg-surface md:block">
+                <table className="w-full text-left text-sm text-ink">
                 <thead className="bg-canvas text-ink/70">
                     <tr>
                     <th className="px-4 py-3">Project</th>
@@ -58,10 +59,9 @@ export default function Projects() {
                 </table>
             </div>
 
-            {/* Cards: mobile */}
             <div className="space-y-3 md:hidden">
                 {visible.map((p) => (
-                <div key={p.id} className="rounded-lg border border-line bg-white p-4">
+                <div key={p.id} className="rounded-lg border border-line bg-surface p-4">
                     <div className="flex items-start justify-between gap-2">
                     <p className="font-medium">{p.name}</p>
                     <StatusBadge status={p.status} />
