@@ -14,7 +14,7 @@ export default function Projects() {
     const filter =
         filters.find((f) => f.toLowerCase() === statusParam?.toLowerCase()) ?? "All";
 
-    function changeFilter(f) {
+    const changeFilter = (f) => {
         setSearchParams(
         (prev) => {
             const next = new URLSearchParams(prev);
@@ -24,7 +24,7 @@ export default function Projects() {
         },
         { replace: true }
         );
-    }
+    };
 
     const visible = filter === "All" ? projects : projects.filter((p) => p.status === filter);
 
