@@ -1,125 +1,93 @@
-# FreelaAxis: Freelance Client Dashboard
+# FreelaAxis – Freelance Client Dashboard
 
-A responsive, multi-page admin dashboard for a fictional freelance client, built with **React**, **React Router**, **Recharts**, and **Tailwind CSS**. The sidebar and top header stay fixed while the pages switch without a refresh, and the whole interface supports a **dark / light theme**.
+FreelaAxis is a responsive, multi-page freelance dashboard developed as part of the **Elevvo Pathways Frontend Development Internship (Task 6)**.
+Built with React, React Router, Tailwind CSS, and Recharts, it provides project tracking, earnings analytics, task visualization, and profile management.
 
 ## Features
 
-- **Overview page:** summary cards (Total Projects, Earnings, Tasks Due), a monthly earnings bar chart, a tasks-by-type pie chart, and a recent activity list
-- **Projects page:** project name, client, status, and deadline, with status filter buttons. It shows a table on desktop and cards on mobile
-- **Profile Settings page:** editable name, email, and password placeholder fields with a mock "Changes saved" message
-- **Shared layout:** one sidebar and one header across all pages using a React Router layout route (`Outlet`)
-- **Client-side routing:** page changes without a browser refresh
-- **Notification dropdown:** shows the 3 most recent activities from mock data and closes when you click outside it
-- **Dark / light theme:** toggle in the header, saved in `localStorage`, and it follows the system setting on the first visit
-- **Responsive design:** the sidebar becomes a slide-in menu on phones and tablets
-- **Conditional rendering:** mobile sidebar, dropdown, empty states, and status badge colors
+- **Overview:** Statistics cards, earnings chart, task distribution, and recent activities.
+- **Projects:** Project listings with status filtering (All, Active, Pending, Completed, Overdue).
+- **Profile:** Editable profile information.
+- **Navigation:** Multi-page routing with a shared dashboard layout.
+- **Notifications:** Interactive notification dropdown with outside-click dismissal.
+- **Theme Switching:** Dark/light mode with localStorage persistence and system preference detection.
+- **Responsive Design:** Mobile-friendly sidebar and adaptive project layouts.
+- **Scroll to Top:** Button for convenient page navigation.
 
 ## Tech Stack
 
-| Tool | Purpose |
-|---|---|
-| React 19 | UI components and state |
-| React Router 7 | Routing and the shared layout |
-| Recharts | Bar and pie charts |
-| Tailwind CSS 4 | Styling and responsive layout |
-| Vite 6 | Dev server and build tool |
-
-## Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) 18 or newer
-- npm (comes with Node.js)
-
-### Installation
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/<your-username>/elevvo_frontend-development_task6.git
-
-# 2. Go into the project folder
-cd elevvo_frontend-development_task6
-
-# 3. Install dependencies
-npm install
-
-# 4. Start the development server
-npm run dev
-```
-
-Open the link shown in the terminal (usually `http://localhost:5173`).
-
-### Available Scripts
-
-| Command | What it does |
-|---|---|
-| `npm run dev` | Starts the development server |
-| `npm run build` | Creates a production build in `dist/` |
-| `npm run preview` | Previews the production build locally |
+- React 19
+- React Router 7
+- Tailwind CSS 4
+- Recharts
+- JavaScript (ES6+)
+- Vite 6
 
 ## Project Structure
 
-```
+```text
 src/
-  main.jsx                      App entry, BrowserRouter and ThemeProvider
-  App.jsx                       Route definitions
-  index.css                     Tailwind import and theme colors
-  context/
-    ThemeContext.jsx            Dark/light theme state and chart colors
-  layouts/
-    DashboardLayout.jsx         Sidebar + header + page outlet
-  components/
-    Sidebar.jsx                 Navigation links (NavLink)
-    Header.jsx                  Top bar with menu button, theme toggle, alerts
-    ThemeToggle.jsx             Dark/light switch button
-    NotificationDropdown.jsx    Latest 3 activities
-    StatCard.jsx                Reusable summary card
-    StatusBadge.jsx             Colored project status label
-    ActivityList.jsx            Recent activity list
-    EarningsChart.jsx           Monthly earnings bar chart
-    TaskPieChart.jsx            Tasks by type pie chart
-  pages/
-    Overview.jsx
-    Projects.jsx
-    Profile.jsx
-  data/
-    mockData.js                 All mock projects, activities, and chart data
+├── components/
+│   ├── ActivityList.jsx
+│   ├── EarningsChart.jsx
+│   ├── Header.jsx
+│   ├── NotificationDropdown.jsx
+│   ├── ScrollToTopButton.jsx
+│   ├── Sidebar.jsx
+│   ├── StatCard.jsx
+│   ├── StatusBadge.jsx
+│   ├── TaskPieChart.jsx
+│   └── ThemeToggle.jsx
+├── context/
+│   └── ThemeContext.jsx
+├── data/
+│   └── mockData.js
+├── layouts/
+│   └── DashboardLayout.jsx
+├── pages/
+│   ├── Overview.jsx
+│   ├── Projects.jsx
+│   └── Profile.jsx
+├── App.jsx
+├── index.css
+└── main.jsx
 ```
+
+## Getting Started
+
+```bash
+# Clone repository
+git clone https://github.com/Adeeba333/Elevvo_Frontend_Development_task6.git
+
+# Navigate to project
+cd Elevvo_Frontend_Development_task6
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+## Available Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
 
 ## Routes
 
-| Path | Page |
+| Route | Page |
 |---|---|
 | `/` | Overview |
 | `/projects` | Projects |
-| `/profile` | Profile Settings |
-
-## Color Scheme
-
-| Color | Hex | Use |
-|---|---|---|
-| Canvas | `#f6f6f6` | Page background |
-| Line | `#e8e8e8` | Borders and dividers |
-| Ink | `#333333` | Text and sidebar |
-| Brand | `#990100` | Buttons, active links, charts |
-| Brand light | `#b90504` | Hover states and highlights |
-
-The colors are CSS variables in `src/index.css`. The `.dark` class swaps them for dark-theme values, so the interface changes without extra `dark:` classes.
-
-## Customizing the Data
-
-All text and numbers shown in the dashboard live in `src/data/mockData.js`. Edit the `projects`, `activities`, `stats`, `monthlyEarnings`, and `taskTypes` arrays to change what the pages display.
-
-## Key Concepts Practiced
-
-- React components, props, and reusable UI
-- `useState`, `useEffect`, and `useRef`
-- React Router layout routes, `NavLink`, and `Outlet`
-- React Context for global theme state
-- Charts with Recharts
-- Responsive design with Tailwind breakpoints
-- Conditional rendering
+| `/profile` | Profile |
 
 ## Author
 
-**Mahmuda Adeeba Tul Husna** 
+**Mahmuda Adeeba Tul Husna**
+---
+
+*Developed to strengthen practical skills in React, component architecture, routing, state management, data visualization, and responsive web development.*
