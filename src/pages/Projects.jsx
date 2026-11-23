@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import StatusBadge from "../components/StatusBadge";
 import { projects } from "../data/mockData";
 
@@ -7,8 +7,24 @@ const filters = ["All", "Active", "Pending", "Completed", "Overdue"];
 const formatDate = (iso) =>
     new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 
-    export default function Projects() {
-    const [filter, setFilter] = useState("All");
+export default function Projects() {
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const statusParam = searchParams.get("status");
+    const filter =
+        filters.find((f) => f.toLowerCase() === statusParam?.toLowerCase()) ?? "All";
+
+    function changeFilter(f) {
+        setSearchParams(
+        (prev) => {
+            const next = new URLSearchParams(prev);
+            if (f === "All") next.delete("status");
+            else next.set("status", f.toLowerCase());
+            return next;
+        },
+        { replace: true }
+        );
+    }
 
     const visible = filter === "All" ? projects : projects.filter((p) => p.status === filter);
 
@@ -20,7 +36,8 @@ const formatDate = (iso) =>
             {filters.map((f) => (
             <button
                 key={f}
-                onClick={() => setFilter(f)}
+                onClick={() => changeFilter(f)}
+                aria-pressed={filter === f}
                 className={`rounded-full border px-3 py-1 text-sm ${
                 filter === f
                     ? "border-brand bg-brand text-white"
