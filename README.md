@@ -1,7 +1,6 @@
 # FreelaAxis – Freelance Client Dashboard
 
-FreelaAxis is a responsive, multi-page freelance dashboard developed as part of the **Elevvo Pathways Frontend Development Internship (Task 6)**.
-Built with React, React Router, Tailwind CSS, and Recharts, it provides project tracking, earnings analytics, task visualization, and profile management.
+FreelaAxis is a responsive, multi-page freelance dashboard.Built with React, React Router, Tailwind CSS, and Recharts, it provides project tracking, earnings analytics, task visualization, and profile management.
 
 ## Features
 
